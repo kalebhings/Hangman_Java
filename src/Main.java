@@ -115,6 +115,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Let's play Hangman!");
+        System.out.println("Please make sure to use caps lock to work correctly");
         Main hangmanGame = new Main();
         hangmanGame.newGame();
         hangmanGame.play();
