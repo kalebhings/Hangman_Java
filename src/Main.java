@@ -1,26 +1,25 @@
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
     public Words words = new Words();
-    // Max errors before user lose
-    public static final int MAX_ERRORS = 8;
-    // Word to find
+    private Parachute parachute = new Parachute();
+    public static final int maxErrors = 7;
     private String wordToFind;
-    // Word found stored in a char array to show progression of user
     private char[] wordFound;
-    private int nbErrors;
-    // letters already entered by user
+    private int errors;
     private ArrayList< String > letters = new ArrayList < > ();
 
-
-    // Method for starting a new game
+    // Starts a new game
     public void newGame() {
-        nbErrors = 0;
+        errors = 0;
         letters.clear();
+
+        // Gets the new word
         wordToFind = words.newWord();
+        // Prints the parachute at full length
+        parachute.parachutePrint(7);
 
         // word found initialization
         wordFound = new char[wordToFind.length()];
@@ -30,7 +29,7 @@ public class Main {
         }
     }
 
-    // Method returning trus if word is found by user
+    // Method returning true if word is found by user
     public boolean wordFound() {
         return wordToFind.contentEquals(new String(wordFound));
     }
@@ -50,7 +49,7 @@ public class Main {
                 }
             } else {
                 // c not in the word => error
-                nbErrors++;
+                errors++;
             }
 
             // c is now a letter entered
@@ -77,7 +76,7 @@ public class Main {
     public void play() {
         try (Scanner input = new Scanner(System.in)) {
             // we play while nbErrors is lower than max errors or user has found the word
-            while (nbErrors < MAX_ERRORS) {
+            while (errors < maxErrors) {
                 System.out.println("\nEnter a letter : ");
                 // get next input from user
                 String str = input.next();
@@ -99,12 +98,13 @@ public class Main {
                     break;
                 } else {
                     // we display nb tries remaining for the user
-                    System.out.println("\n=> Nb tries remaining : " + (MAX_ERRORS - nbErrors));
+                    System.out.println("\n=> Incorrect, tries remaining : " + (maxErrors - errors));
+                    parachute.parachutePrint(maxErrors - errors);
                 }
             }
 
-            if (nbErrors == MAX_ERRORS) {
-                // user losed
+            if (errors == maxErrors) {
+                // Gives a message when user lost and gives the word
                 System.out.println("\nYou lose!");
                 System.out.println("=> Word to find was : " + wordToFind);
             }
@@ -119,7 +119,5 @@ public class Main {
         hangmanGame.newGame();
         hangmanGame.play();
     }
-
-
 
 }
