@@ -15,7 +15,7 @@ public class Words {
             "TRANSIENT", "TRUE", "TRY", "VOID", "VOLATILE", "WHILE"
     };
 
-    public static final Random random = new Random();
+    private static final Random random = new Random();
 
     public String newWord() {
         return words[random.nextInt(words.length)];
