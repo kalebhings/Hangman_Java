@@ -21,7 +21,7 @@ public class Main {
         // Prints the parachute at full length
         parachute.parachutePrint(7);
 
-        // word found initialization
+        // Initializes wordFound giving it the length of the chosen word.
         wordFound = new char[wordToFind.length()];
 
         for (int i = 0; i < wordFound.length; i++) {
@@ -29,12 +29,12 @@ public class Main {
         }
     }
 
-    // Method returning true if word is found by user
+    // Returns true if the word is found by user
     public boolean wordFound() {
         return wordToFind.contentEquals(new String(wordFound));
     }
 
-    // Method updating the word found after user entered a character
+    // Updates the wordFound after user entered a character. If the guess is correct, the letter is inserted. If it's incorrect, an error is added.
     private void enter(String c) {
         // we update only if c has not already been entered
         if (!letters.contains(c)) {
