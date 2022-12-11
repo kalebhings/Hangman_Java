@@ -2,7 +2,7 @@
 
 I decided to make Hangman, a project that I have done in the past with C# to learn Java. I decided to recreate this project because it helps me learn the basics that I need to be able to use the language while still having a simple concept of the program. I wrote a program that picks a random word given from the Words class, and updates the parachute man in the Parachute class whenever an error is given. 
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://www.youtube.com/watch?v=WcpLoTC95bI&ab_channel=KalebHings)
 
 # Development Environment
 
